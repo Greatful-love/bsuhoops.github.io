@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About &amp; Join — Ball State Club Basketball</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container header-inner">
+    <a class="logo" href="index.html" aria-label="Ball State Club Basketball home">
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="18" cy="18" r="18" fill="#AE1A30"/>
+        <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle"
+              font-family="Anton,sans-serif" font-size="16" fill="white">BSU</text>
+      </svg>
+      <div class="logo-text">
+        <strong>Ball State</strong>
+        <span>CLUB BASKETBALL</span>
+      </div>
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="roster.html">Roster</a>
+      <a class="nav-link" href="news.html">News</a>
+      <a class="nav-link" href="about.html">About / Join</a>
+    </nav>
+    <div class="header-actions">
+      <div class="social-icons" id="header-socials"></div>
+      <button class="nav-toggle" id="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <svg class="hero-ball" viewBox="0 0 400 400" aria-hidden="true">
+    <circle cx="200" cy="200" r="200" fill="white"/>
+    <path d="M200 0 C200 200 0 200 0 200" stroke="#AE1A30" stroke-width="6" fill="none"/>
+    <path d="M200 0 C200 200 400 200 400 200" stroke="#AE1A30" stroke-width="6" fill="none"/>
+    <line x1="0" y1="200" x2="400" y2="200" stroke="#AE1A30" stroke-width="4"/>
+  </svg>
+  <div class="container" style="position:relative;">
+    <div class="eyebrow">The Program</div>
+    <h1>About &amp; Join</h1>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="section-head" style="max-width:none;">
+          <div class="eyebrow">Who We Are</div>
+          <h2>Cardinal Basketball<br>— Student Run</h2>
+        </div>
+        <p>Ball State Club Basketball is a student-operated competitive basketball program affiliated with Ball State University's Recreation Services and NIRSA (National Intramural-Recreational Sports Association).</p>
+        <p>We compete against other club programs at regional NIRSA tournaments and host scrimmages throughout the semester. Our goal is to give competitive ball players the chance to keep playing organized basketball after high school — on their terms, at their school.</p>
+        <p>No matter your background — high school varsity, intramural, or just pick-up ball — if you love the game and want to compete, we want to hear from you.</p>
+
+        <h3 style="font-family:var(--font-display);font-size:1.3rem;margin:34px 0 14px;">How to Join</h3>
+        <ol class="steps">
+          <li>
+            <span class="step-num">1</span>
+            <div>
+              <strong>Fill out the interest form</strong>
+              <p>Submit your name, year, and position so we have your info before tryouts.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <div>
+              <strong>Come to tryouts</strong>
+              <p>Dates are announced each semester on our social media and news page. Show up ready to compete.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <div>
+              <strong>Pay club dues &amp; register with RecServices</strong>
+              <p>Once you make the roster, dues cover your jersey, tournament fees, and facility access.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num">4</span>
+            <div>
+              <strong>Show up and hoop</strong>
+              <p>Practice twice a week, compete in tournaments, and be part of the Cardinal basketball family.</p>
+            </div>
+          </li>
+        </ol>
+        <a class="btn btn-primary" id="about-join-link" href="#" style="margin-bottom:10px;">Interest Form →</a>
+      </div>
+
+      <!-- Quick-info sidebar -->
+      <div style="display:grid;gap:18px;align-self:start;">
+        <div class="card info-card">
+          <div class="card-body">
+            <h3>Practice Info</h3>
+            <ul class="info-list">
+              <li>
+                <strong>Days &amp; Times</strong>
+                <span id="about-practice-days">Tuesdays &amp; Thursdays, 7:00–9:00 PM</span>
+              </li>
+              <li>
+                <strong>Location</strong>
+                <span id="about-practice-location">Ball State RecCenter Gym A</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card info-card">
+          <div class="card-body">
+            <h3>Club Details</h3>
+            <ul class="info-list">
+              <li>
+                <strong>Affiliation</strong>
+                <span>Ball State Recreation Services / NIRSA</span>
+              </li>
+              <li>
+                <strong>Dues</strong>
+                <span id="about-dues">$50/semester</span>
+              </li>
+              <li>
+                <strong>Eligibility</strong>
+                <span>Any enrolled BSU student</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card info-card" style="background:var(--cardinal);color:var(--paper);border:0;">
+          <div class="card-body">
+            <h3 style="color:var(--paper);">Contact Us</h3>
+            <p style="font-size:.9rem;color:rgba(255,255,255,.85);margin:0 0 12px;">
+              Questions about joining, scheduling, or anything else? Reach out directly.
+            </p>
+            <a id="about-contact-link" href="mailto:bsuclubhoops@bsu.edu"
+               style="color:var(--paper);font-family:var(--font-data);font-size:.85rem;text-decoration:underline;"
+               id="about-contact">bsuclubhoops@bsu.edu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL CTA -->
+<section class="section section-alt">
+  <div class="container" style="text-align:center;">
+    <div class="eyebrow" style="justify-content:center;">Stay Connected</div>
+    <h2 style="font-family:var(--font-display);font-size:2rem;margin-bottom:10px;">Follow Along</h2>
+    <p style="color:var(--slate);max-width:440px;margin:0 auto 28px;">
+      Game updates, highlights, tryout announcements, and more — follow us on social.
+    </p>
+    <div class="social-icons" style="justify-content:center;gap:20px;" id="header-socials-about"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <div class="logo" style="margin-bottom:10px;">
+        <svg viewBox="0 0 36 36" fill="none" style="width:34px;height:34px;" aria-hidden="true">
+          <circle cx="18" cy="18" r="18" fill="#AE1A30"/>
+          <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle"
+                font-family="Anton,sans-serif" font-size="16" fill="white">BSU</text>
+        </svg>
+        <div class="logo-text">
+          <strong class="footer-team-name">Ball State Club Basketball</strong>
+          <span>MUNCIE, INDIANA</span>
+        </div>
+      </div>
+      <p class="footer-tagline" id="footer-tagline"></p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="roster.html">Roster</a>
+        <a href="news.html">News</a>
+        <a href="about.html">About / Join</a>
+      </nav>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <div class="social-icons" id="footer-socials"></div>
+      <h4 style="margin-top:16px;">Contact</h4>
+      <a class="footer-email" id="footer-email" href="#">Email Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2025 Ball State Club Basketball · Student-Operated · Not an official BSU Athletics program</div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script>
+  // Wire up the extra social icon set on this page
+  document.addEventListener('DOMContentLoaded', () => {
+    const el = document.getElementById('header-socials-about');
+    if (el) {
+      const links = Object.entries(SOCIAL).filter(([,url]) => url);
+      el.innerHTML = links.map(([k,url]) =>
+        `<a href="${url}" target="_blank" rel="noopener" aria-label="${k}" style="color:var(--ink);opacity:.75;transition:.15s;"
+           onmouseover="this.style.opacity=1;this.style.color='var(--cardinal)'"
+           onmouseout="this.style.opacity=.75;this.style.color='var(--ink)'">${socialIcon(k)}</a>`
+      ).join('');
+    }
+    // Contact link
+    const cl = document.getElementById('about-contact-link');
+    if (cl) { cl.href = 'mailto:' + TEAM_INFO.contactEmail; cl.textContent = TEAM_INFO.contactEmail; }
+  });
+</script>
+</body>
+</html>
