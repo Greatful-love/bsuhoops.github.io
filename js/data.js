@@ -15,13 +15,13 @@
 const TEAM_INFO = {
   name: "Ball State Club Basketball",
   shortName: "BSU Club Hoops",
-  season: "2025–26",
+  season: "2026–27",
   tagline: "Student-run. Cardinal pride. Built different.",
   contactEmail: "bsuclubhoops@bsu.edu",
   location: "Worthen Arena & RecCenter, Muncie, IN",
   practiceDays: "Tuesdays & Thursdays, 7:00 – 9:00 PM",
   practiceLocation: "Ball State RecCenter Gym A",
-  clubDuesInfo: "$50/semester (includes jersey + tournament fees)",
+  clubDuesInfo: "$100/semester (includes jersey + tournament fees)",
   joinFormLink: "#",    // replace with Google Form URL
   instagramHandle: "@bsuclubhoops",
 };
