@@ -30,7 +30,7 @@ const TEAM_INFO = {
    2. SOCIAL MEDIA — paste your actual profile URLs
    ------------------------------------------------------------------ */
 const SOCIAL = {
-  instagram: "https://instagram.com/",   // e.g. https://instagram.com/bsuclubhoops
+  instagram: "https://instagram.com/bsuhoops",   // e.g. https://instagram.com/bsuclubhoops
   twitter:   "https://x.com/",           // e.g. https://x.com/bsuclubhoops
   tiktok:    "https://tiktok.com/@",     // e.g. https://tiktok.com/@bsuclubhoops
   youtube:   "",                          // leave empty to hide icon
