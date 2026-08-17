@@ -23,7 +23,7 @@ const TEAM_INFO = {
   practiceLocation: "Ball State RecCenter Gym A",
   clubDuesInfo: "$100/semester (includes jersey + tournament fees)",
   joinFormLink: "#",    // replace with Google Form URL
-  instagramHandle: "@bsuclubhoops",
+  instagramHandle: "@bsuhoops",
 };
 
 /* ------------------------------------------------------------------
