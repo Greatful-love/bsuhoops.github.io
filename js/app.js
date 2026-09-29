@@ -128,6 +128,146 @@ function closeNewsModal() {
   document.body.style.overflow = '';
 }
 
+
+// ── SCHEDULE SECTION ──────────────────────────────────────────────────
+let scheduleFilter = 'All';
+
+function parseGameDate(str) {
+  const [y, m, d] = str.split('-').map(Number);
+  return new Date(y, m - 1, d);
+}
+
+function isUpcoming(game) {
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  return parseGameDate(game.date) >= today;
+}
+
+function sortedSchedule() {
+  return [...SCHEDULE].sort((a, b) => parseGameDate(a.date) - parseGameDate(b.date));
+}
+
+// Logo with graceful fallback: real image if it loads, initials badge if not
+function teamLogo(logoPath, name, isUs) {
+  const cls = isUs ? 'team-logo is-us' : 'team-logo';
+  const fallback = `<span class="logo-fallback">${isUs ? 'BSU' : initials(name)}</span>`;
+  const path = logoPath || (isUs ? TEAM_INFO.logo : '');
+  const img = path
+    ? `<img src="${path}" alt="${name} logo" loading="lazy"
+         onload="this.previousElementSibling.style.display='none'"
+         onerror="this.remove()">`
+    : '';
+  return `<span class="${cls}">${fallback}${img}</span>`;
+}
+
+function buildGameCard(g, isNext) {
+  const dt = parseGameDate(g.date);
+  const month = dt.toLocaleDateString('en-US', { month: 'short' });
+  const weekday = dt.toLocaleDateString('en-US', { weekday: 'long' });
+  const upcoming = isUpcoming(g);
+  const joiner = g.homeAway === 'Away' ? '@' : 'vs';
+  const mapQuery = encodeURIComponent([g.venue, g.address].filter(Boolean).join(', '));
+  const mapLink = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
+
+  let status = '';
+  if (g.result) {
+    const won = g.result.us > g.result.them;
+    status = `<div class="game-result ${won ? 'win' : 'loss'}">
+        <span class="wl">${won ? 'W' : 'L'}</span>
+        <span class="score">${g.result.us}–${g.result.them}</span>
+      </div>`;
+  } else if (!upcoming) {
+    status = `<div class="game-result final"><span class="score">Final</span></div>`;
+  } else {
+    status = `<div class="game-result time"><span class="score">${g.time || 'TBD'}</span></div>`;
+  }
+
+  const badges = [
+    isNext ? `<span class="game-badge next">Next Game</span>` : '',
+    `<span class="game-badge ${g.homeAway.toLowerCase()}">${g.homeAway}</span>`,
+    g.event ? `<span class="game-badge event">${g.event}</span>` : '',
+  ].join('');
+
+  return `
+  <article class="game-card${upcoming ? '' : ' is-past'}${isNext ? ' is-next' : ''}">
+    <div class="game-date">
+      <span class="gd-month">${month}</span>
+      <span class="gd-day">${dt.getDate()}</span>
+      <span class="gd-year">${dt.getFullYear()}</span>
+    </div>
+    <div class="game-main">
+      <div class="game-badges">${badges}</div>
+      <div class="game-matchup">
+        <div class="game-team">
+          ${teamLogo('', TEAM_INFO.shortName, true)}
+          <span class="team-name">Ball State</span>
+        </div>
+        <span class="game-vs">${joiner}</span>
+        <div class="game-team">
+          ${teamLogo(g.logo, g.opponent, false)}
+          <span class="team-name">${g.opponent}</span>
+        </div>
+      </div>
+      <div class="game-details">
+        <span>🗓 ${weekday}${g.time ? ' · ' + g.time : ''}</span>
+        <span>📍 ${g.venue}${g.address ? ' — ' + g.address : ''}
+          · <a class="map-link" href="${mapLink}" target="_blank" rel="noopener">Directions</a></span>
+        ${g.note ? `<span>ℹ️ ${g.note}</span>` : ''}
+      </div>
+    </div>
+    ${status}
+  </article>`;
+}
+
+function renderSchedule(filter) {
+  const list = document.getElementById('schedule-list');
+  if (!list) return;
+  scheduleFilter = filter || scheduleFilter;
+
+  const all = sortedSchedule();
+  const nextGame = all.find(isUpcoming);
+  const shown = all.filter(g => {
+    if (scheduleFilter === 'Upcoming') return isUpcoming(g);
+    if (scheduleFilter === 'Past')     return !isUpcoming(g);
+    if (scheduleFilter === 'Home')     return g.homeAway === 'Home';
+    if (scheduleFilter === 'Away')     return g.homeAway === 'Away';
+    return true;
+  });
+
+  list.innerHTML = shown.length
+    ? shown.map(g => buildGameCard(g, g === nextGame)).join('')
+    : `<div class="empty-state"><p>No games to show here yet.</p></div>`;
+
+  document.querySelectorAll('#schedule-filters .filter-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.filter === scheduleFilter);
+  });
+
+  // Record summary
+  const rec = document.getElementById('schedule-record');
+  if (rec) {
+    const played = all.filter(g => g.result);
+    const w = played.filter(g => g.result.us > g.result.them).length;
+    rec.textContent = played.length ? `Season record: ${w}–${played.length - w}` : '';
+  }
+}
+
+function renderScheduleFilters() {
+  const bar = document.getElementById('schedule-filters');
+  if (!bar) return;
+  bar.innerHTML = ['Upcoming', 'All', 'Past', 'Home', 'Away'].map(t =>
+    `<button class="filter-btn" data-filter="${t}" onclick="renderSchedule('${t}')">${t}</button>`
+  ).join('');
+}
+
+// HOME: next 3 games teaser
+function renderHomeSchedule() {
+  const list = document.getElementById('home-schedule-list');
+  if (!list) return;
+  const upcoming = sortedSchedule().filter(isUpcoming).slice(0, 3);
+  list.innerHTML = upcoming.length
+    ? upcoming.map((g, i) => buildGameCard(g, i === 0)).join('')
+    : `<div class="empty-state"><p>No upcoming games scheduled yet — check back soon!</p></div>`;
+}
+
 // ── ROSTER SECTION ────────────────────────────────────────────────────
 function buildPlayerCard(p, idx) {
   const hasPhoto = !!p.photo;
@@ -286,6 +426,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Page-specific
   renderHomeNews();
   renderHomeRoster();
+  renderHomeSchedule();
+  renderScheduleFilters();
+  renderSchedule('Upcoming');
   renderNewsFilters();
   renderNews('All');
   renderRoster();

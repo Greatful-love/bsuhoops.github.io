@@ -7,6 +7,7 @@
      3. PLAYERS      — full roster with stats & bios
      4. COACHES      — coaching/staff section
      5. NEWS         — news posts (add new ones at the top)
+     6. SCHEDULE     — games: dates, locations, opponent logos, results
    ==================================================================== */
 
 /* ------------------------------------------------------------------
@@ -24,6 +25,7 @@ const TEAM_INFO = {
   clubDuesInfo: "$100/semester (includes jersey + tournament fees)",
   joinFormLink: "#",    // replace with Google Form URL
   instagramHandle: "@bsuhoops",
+  logo: "",   // optional: our team logo, e.g. "images/logos/bsu.png" (blank = cardinal BSU badge)
 };
 
 /* ------------------------------------------------------------------
@@ -205,5 +207,88 @@ const NEWS = [
     excerpt: "Practices move to Tuesday/Thursday evenings starting September 9. All times and locations inside.",
     body: "Starting September 9, the team will practice Tuesdays and Thursdays from 7:00–9:00 PM in RecCenter Gym A.\n\nAttendance expectations will be shared at the first meeting. If you have a conflict with these times, reach out to the club president before the season begins so we can work something out.\n\nSee you on the court.",
     image: "",
+  },
+];
+
+/* ------------------------------------------------------------------
+   6. SCHEDULE — add, edit, or remove games below.
+   The page sorts by date automatically and marks games as
+   Upcoming / Final based on today's date.
+
+   *** THE GAMES BELOW ARE SAMPLES — replace them with your real ones. ***
+
+   Fields:
+     date       — "YYYY-MM-DD"  (e.g. "2026-11-14")
+     time       — display time, e.g. "2:00 PM"  ("TBD" is fine)
+     opponent   — opponent team name
+     logo       — path to opponent logo, e.g. "images/logos/purdue.png"
+                  (leave "" and the page shows a badge with their initials)
+     homeAway   — "Home" | "Away" | "Neutral"
+     venue      — name of the gym, e.g. "Mackey Arena"
+     address    — (optional) street address / city — used for the map link
+     event      — (optional) label like "Conference", "Tournament", "Scrimmage"
+     result     — (optional) after the game: { us: 58, them: 51 }
+     note       — (optional) extra info, e.g. "Bring your BSU ID"
+   ------------------------------------------------------------------ */
+const SCHEDULE = [
+  {
+    date: "2026-10-17",
+    time: "1:00 PM",
+    opponent: "Sample University",
+    logo: "",
+    homeAway: "Away",
+    venue: "Sample Rec Center",
+    address: "Sample City, IN",
+    event: "Conference",
+    result: { us: 58, them: 51 },
+    note: "",
+  },
+  {
+    date: "2026-11-14",
+    time: "2:00 PM",
+    opponent: "Sample State",
+    logo: "",
+    homeAway: "Home",
+    venue: "Ball State RecCenter Gym A",
+    address: "Ball State University, Muncie, IN",
+    event: "Conference",
+    result: null,
+    note: "Free entry with BSU ID.",
+  },
+  {
+    date: "2026-11-21",
+    time: "4:30 PM",
+    opponent: "Example Tech",
+    logo: "",
+    homeAway: "Away",
+    venue: "Example Tech Fieldhouse",
+    address: "Example City, OH",
+    event: "Conference",
+    result: null,
+    note: "",
+  },
+  {
+    date: "2026-12-05",
+    time: "12:00 PM",
+    opponent: "Demo College",
+    logo: "",
+    homeAway: "Neutral",
+    venue: "Demo Sports Complex",
+    address: "Demo City, IL",
+    event: "Tournament",
+    result: null,
+    note: "",
+  },
+  {
+    date: "2027-01-23",
+    time: "3:00 PM",
+    opponent: "Sample University",
+    logo: "",
+    homeAway: "Home",
+    venue: "Ball State RecCenter Gym A",
+    address: "Ball State University, Muncie, IN",
+    event: "Conference",
+    result: null,
+    note: "",
   },
 ];
