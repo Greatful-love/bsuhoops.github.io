@@ -110,12 +110,13 @@ const PLAYERS = [
     photo: "",
     bio: "N/A",
     stats: { PPG: "0", RPG: "0", APG: "0", FG: "0%" },
+  },
   {
     number: "24",
     name: "Erie Bryant",
     position: "G",
     year: "Jr.",
-    height: "5'10"",
+    height: "5'10\"",
     weight: "lbs",
     hometown: "Indianapolis, IN",
     major: "N/A",
@@ -331,6 +332,7 @@ const SCHEDULE = [
     event: "Conference",
     result: null,
     note: "",
+  },
   {
     date: "2027-02-20",
     time: "3:00 PM",
