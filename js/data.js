@@ -25,7 +25,10 @@ const TEAM_INFO = {
   clubDuesInfo: "$100/semester (includes jersey + tournament fees)",
   joinFormLink: "#",    // replace with Google Form URL
   instagramHandle: "@bsuhoops",
-  logo: "",   // optional: our team logo, e.g. "images/logos/bsu.png" (blank = cardinal BSU badge)
+  // OUR CLUB LOGO — upload your logo to the images/ folder and put its file name here.
+  // It shows up in the site header, footer, browser tab icon, and on every schedule card.
+  // If the file isn't found, the site falls back to the red "BSU" circle.
+  logo: "images/club-logo.png",
 };
 
 /* ------------------------------------------------------------------
@@ -283,7 +286,7 @@ const SCHEDULE = [
     date: "2027-01-21",
     time: "3:00 PM",
     opponent: "Indiana Wesleyan University",
-    logo: "https://github.com/Greatful-love/bsuhoops.github.io/blob/main/images/IWUWildcatsLogo.png?raw=true",
+    logo: "images/IWUWildcatsLogo.png",
     homeAway: "Away",
     venue: "I Am Third Arena",
     address: "Marion, Ind.",
@@ -295,7 +298,7 @@ const SCHEDULE = [
     date: "2027-01-23",
     time: "3:00 PM",
     opponent: "Indiana State",
-    logo: "https://github.com/Greatful-love/bsuhoops.github.io/blob/main/images/Indiana-State-Sycamores-logo.png?raw=true",
+    logo: "images/Indiana-State-Sycamores-logo.png",
     homeAway: "Away",
     venue: "Gainbridge Fieldhouse",
     address: "Indianapolis, Ind.",

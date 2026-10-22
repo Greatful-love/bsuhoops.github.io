@@ -31,6 +31,28 @@ function renderSocials(container) {
   ).join('');
 }
 
+
+// ── CLUB LOGO (header, footer, browser tab) ───────────────────────────
+// Swaps the built-in "BSU" circle for TEAM_INFO.logo once the image loads.
+// If the file is missing, the circle stays — nothing breaks.
+function renderBrandLogo() {
+  if (!TEAM_INFO.logo) return;
+  const probe = new Image();
+  probe.onload = () => {
+    document.querySelectorAll('.logo > svg').forEach(svg => {
+      const img = new Image();
+      img.src = TEAM_INFO.logo;
+      img.alt = '';
+      img.className = 'brand-img';
+      svg.replaceWith(img);
+    });
+    let icon = document.querySelector('link[rel="icon"]');
+    if (!icon) { icon = document.createElement('link'); icon.rel = 'icon'; document.head.appendChild(icon); }
+    icon.href = TEAM_INFO.logo;
+  };
+  probe.src = TEAM_INFO.logo;
+}
+
 // ── Mobile nav toggle ─────────────────────────────────────────────────
 function initNav() {
   const toggle = document.querySelector('.nav-toggle');
@@ -418,6 +440,7 @@ function renderFooter() {
 // ── Init ──────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
+  renderBrandLogo();
   renderHero();
   renderFooter();
   renderSocials(document.getElementById('header-socials'));
