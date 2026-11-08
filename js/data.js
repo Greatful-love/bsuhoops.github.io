@@ -325,7 +325,7 @@ const COACHES = [
 const NEWS = [
   {
     title: "Season kickoff against Indiana University",
-    date: "June 14, 2025",
+    date: "November 1st, 2026",
     tag: "Announcement",
     excerpt: "Ball State's Men's Basketball Club open's up their inaugural season against Indiana University!",
     body: "Basketball Season is approaching for both the Varsity and Club Men's Basketball teams! You dont want to miss the action from us! GO CARDS!",
