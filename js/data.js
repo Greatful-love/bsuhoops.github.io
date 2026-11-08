@@ -20,7 +20,7 @@ const TEAM_INFO = {
   tagline: "Student-run. Cardinal pride. Built different.",
   contactEmail: null,
   location: "Jo Ann Gora Student Recreation Center, Muncie, IN",
-  practiceDays: "Tuesdays @ 9-10 & Fridays @ 7:00-8:45"
+  practiceDays: "Tuesdays @ 9-10 & Fridays @ 7:00-8:45",
   practiceLocation: "Jo Ann Gora Student Recreation Center, Muncie, IN",
   clubDuesInfo: null,
   joinFormLink: null,    // replace with Google Form URL
@@ -220,7 +220,7 @@ const PLAYERS = [
     name: "Erie Bryant",
     position: "G",
     year: "Jr.",
-    height: "5'10"",
+    height: "5'10\"",
     weight: "lbs",
     hometown: "Indianapolis, IN",
     major: "N/A",
@@ -461,6 +461,7 @@ const SCHEDULE = [
     event: "Conference",
     result: null,
     note: "",
+  },
   {
     date: "2027-02-20",
     time: "3:00 PM",
